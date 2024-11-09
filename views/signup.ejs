@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head') %>
+    <link rel="stylesheet" href="login-signup.css" />
+    <title>MeetLoop</title>
+  </head>
+  <body>
+    <main class="block-form">
+      <h2>Sign-Up</h2>
+      <form action="/user" method="post">
+        <div class="form-floating mb-3 mt-4 custom-width">
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+            placeholder="Your name"
+          />
+          <label for="name">Full name</label>
+        </div>
+
+        <div class="form-floating mb-3 custom-width">
+          <input
+            type="email"
+            name="email"
+            class="form-control"
+            id="floatingInput"
+            placeholder="name@example.com"
+          />
+          <label for="floatingInput">Email address</label>
+        </div>
+        <div class="form-floating custom-width mb-5">
+          <input
+            type="password"
+            name="password"
+            class="form-control"
+            id="floatingPassword"
+            placeholder="Password"
+          />
+          <label for="floatingPassword">Password</label>
+        </div>
+
+        <button type="submit" class="btn btn-warning custom-button">
+          Sign - Up
+        </button>
+      </form>
+    </main>
+    <%- include('./partials/script') %>
+  </body>
+</html>

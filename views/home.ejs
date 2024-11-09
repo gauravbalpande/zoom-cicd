@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head') %>
+    <link rel="stylesheet" href="home.css" />
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js"></script> -->
+    <title>MeetLoop</title>
+  </head>
+  <body>
+    <%- include('./partials/nav') %>
+    <h2>Connecting You, Anywhere, Anytime.</h2>
+    <main>
+      <div class="main-controls">
+        <% if (locals.user) { %>
+        <div class="room" id="join-room">
+          <button
+            type="button"
+            id="createRoomButton"
+            class="btn btn-warning custom-button"
+          >
+            Create - Room
+          </button>
+
+          <div class="join-room">
+            <button type="submit" class="btn btn-info custom-button">
+              Join - Room
+            </button>
+            <br />
+            <br />
+            <input
+              type="url"
+              id="inputVal"
+              placeholder="enter url"
+              name="url"
+            />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="submit" id="joinRoomButton" class="btn btn-dark">
+              submit
+            </button>
+          </div>
+        </div>
+        <% } else {%>
+        <div class="room" id="join-room">
+          <button
+            type="button"
+            onclick="loginClick()"
+            class="btn btn-warning custom-button"
+          >
+            Log - In
+          </button>
+
+          <div class="join-room">
+            <button
+              type="button"
+              onclick="signupClick()"
+              class="btn btn-info custom-button"
+            >
+              Create - Account
+            </button>
+          </div>
+        </div>
+        <% } %>
+      </div>
+    </main>
+    <%- include('./partials/script') %>
+
+    <!-- handles create and join room -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const createRoomButton = document.getElementById("createRoomButton");
+        createRoomButton.addEventListener("click", function () {
+          // const roomId = uuidv4();
+          // window.location.href = `/home/${roomId}`;
+
+          window.location.href = `/`;
+        });
+
+        const joinRoomButton = document.getElementById("joinRoomButton");
+        const inputVal = document.getElementById("inputVal");
+        joinRoomButton.addEventListener("click", function () {
+          if (!inputVal.value) {
+            alert("Enter URL first, don't be smart");
+          } else {
+            window.location.href = `${inputVal.value}`;
+          }
+        });
+      });
+
+      const loginClick = () => {
+        window.location.href = "/login";
+      };
+
+      const signupClick = () => {
+        window.location.href = "/signup";
+      };
+    </script>
+  </body>
+</html>
