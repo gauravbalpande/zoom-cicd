@@ -18,7 +18,7 @@ const {
 } = require("./middlewares/authentication");
 
 // connection to database
-connectMongoDB(process.env.Mongo_URL).then(() => {
+connectMongoDB(process.env.MONGO_URL).then(() => {
   // console.log("MongoDB Connected");
 });
 
